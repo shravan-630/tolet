@@ -1,33 +1,34 @@
-# 🏠 [Project Name] - To-Let Listing Platform
+# RoomFinder
 
-A modern, full-stack web application designed to simplify the process of finding and listing rental properties. This platform connects property owners directly with potential tenants, eliminating unnecessary intermediaries.
+RoomFinder is now available as a **backend-free static website** built with plain **HTML, CSS, and JavaScript**.
+It uses browser `localStorage` for demo authentication, session state, and listings.
 
----
+## Run locally (no backend required)
 
-## 🚀 Overview
+```bash
+python3 -m http.server 8080
+```
 
-Finding a rental home can be a fragmented and stressful experience. **[Project Name]** provides a centralized hub where users can browse verified "To-Let" listings, filter by specific needs (price, location, amenities), and contact owners instantly.
+Then open: `http://localhost:8080`
 
-### Key Features
-* **User Authentication:** Secure signup/login for both Renters and Property Owners.
-* **Property Management:** Owners can create, edit, and delete listings with image uploads.
-* **Advanced Search:** Filter properties by city, price range, and property type (Flat, Hostel, Office).
-* **Responsive Design:** Fully optimized for mobile, tablet, and desktop viewing.
-* **Interactive Maps:** (Optional: If using Google Maps/Leaflet) View property locations in real-time.
+## Included features (static mode)
 
----
+- Owner / Tenant registration and login
+- Session persistence and logout
+- Owner dashboard
+  - Create listings with room type, title, description, address, contact, price, facilities
+  - Multiple image uploads (stored as base64 in browser storage)
+  - Click-to-pin location map (OpenStreetMap + Leaflet)
+  - View and delete own listings
+- Tenant dashboard
+  - Search + filter by room type, location keywords, max price slider
+  - List view and map view toggle
+  - Map markers with popup + listing open
+- Listing detail page with gallery, facilities badges, coordinates, and map link
+- Responsive clean UI and toast notifications
 
-## 🛠️ Tech Stack
+## Notes
 
-**Frontend:** [e.g., React.js, Tailwind CSS]
-**Backend:** [e.g., Node.js, Express]
-**Database:** [e.g., MongoDB, PostgreSQL]
-**Authentication:** [e.g., Firebase Auth, JWT]
-
----
-
-## 📥 Installation & Setup
-
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/](https://github.com/)[Shravan630]/[Tolet].git
+- Data is stored in your browser only (`localStorage`).
+- Clearing site data will remove accounts/listings.
+- This mode is ideal for prototype/demo without Express/PocketBase.
