@@ -1,33 +1,75 @@
-# 🏠 [Project Name] - To-Let Listing Platform
+# RoomFinder
 
-A modern, full-stack web application designed to simplify the process of finding and listing rental properties. This platform connects property owners directly with potential tenants, eliminating unnecessary intermediaries.
+RoomFinder is a full-stack rental marketplace for Owners and Tenants.
 
----
+## Stack
 
-## 🚀 Overview
+- **Frontend:** React + TailwindCSS + React Router + Google Maps API
+- **Backend:** Express.js API
+- **Database/Auth:** PocketBase collections (`users`, `listings`)
 
-Finding a rental home can be a fragmented and stressful experience. **[Project Name]** provides a centralized hub where users can browse verified "To-Let" listings, filter by specific needs (price, location, amenities), and contact owners instantly.
+## Features
 
-### Key Features
-* **User Authentication:** Secure signup/login for both Renters and Property Owners.
-* **Property Management:** Owners can create, edit, and delete listings with image uploads.
-* **Advanced Search:** Filter properties by city, price range, and property type (Flat, Hostel, Office).
-* **Responsive Design:** Fully optimized for mobile, tablet, and desktop viewing.
-* **Interactive Maps:** (Optional: If using Google Maps/Leaflet) View property locations in real-time.
+- Owner/Tenant registration and login
+- Session token persistence, logout
+- Owner dashboard to create/manage room listings
+- Tenant dashboard with search, filter, price slider, map/list toggle
+- Listing details page with facilities and map actions
+- Google Maps pinning for owners + marker map for tenants
+- Responsive UI, badges, toast notifications
 
----
+## Project structure
 
-## 🛠️ Tech Stack
+- `client/`: Vite React app
+- `server/`: Express API
 
-**Frontend:** [e.g., React.js, Tailwind CSS]
-**Backend:** [e.g., Node.js, Express]
-**Database:** [e.g., MongoDB, PostgreSQL]
-**Authentication:** [e.g., Firebase Auth, JWT]
+## Environment Variables
 
----
+### `server/.env`
 
-## 📥 Installation & Setup
+```bash
+PORT=4000
+CLIENT_URL=http://localhost:5173
+POCKETBASE_URL=http://127.0.0.1:8090
+```
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/](https://github.com/)[Shravan630]/[Tolet].git
+### `client/.env`
+
+```bash
+VITE_API_URL=http://localhost:4000/api
+VITE_GOOGLE_MAPS_API_KEY=[Your API Key]
+```
+
+## PocketBase collections
+
+### `users`
+
+- `email`
+- `password`
+- `name`
+- `phone`
+- `userType` (Owner | Tenant)
+
+### `listings`
+
+- `ownerId`
+- `roomType`
+- `title`
+- `description`
+- `address`
+- `location`
+- `contactNumber`
+- `price`
+- `images`
+- `facilities`
+- `latitude`
+- `longitude`
+
+## Run locally
+
+```bash
+npm install
+npm run dev
+```
+
+This runs both client and server via npm workspaces.
